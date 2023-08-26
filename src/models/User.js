@@ -10,16 +10,16 @@ const UserModel = (sequelize, DataTypes) => {
       image: DataTypes.STRING,
       password: DataTypes.STRING
     }, {
-        underscored: true,
-        timestamps: false
+      timestamps: false,
+      tableName: 'users'
     });
 
     User.associate = (models) => {
       User.hasMany(
         models.BlogPost,
         {
-        foreingKey: 'userId',
-        as: 'users'
+          foreignKey: 'userId',
+          as: 'users'
         }
       )
     }
